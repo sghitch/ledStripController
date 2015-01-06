@@ -18,49 +18,54 @@ namespace ledStripController
 
         public static void waterfall()
         {
-            for (int i = 0; i < 240; i++)
+            while (true)
             {
-                for (int j = 0; j < Program.strip.getSize(); j++)
+                for (int i = 0; i < 240; i++)
                 {
-                    int color = ((i + j) % 60) * 4;
-                    Program.strip.setPixel(j, Color.FromArgb(color, color, 255));
+                    for (int j = 0; j < Program.strip.getSize(); j++)
+                    {
+                        int color = ((i + j) % 60) * 4;
+                        Program.strip.setPixel(j, Color.FromArgb(color, color, 255));
+                    }
+                    Program.strip.update();
                 }
-                Program.strip.update();
             }
         }
 
         public static void candyCane()
         {
-
-            for (int i = 0; i < Program.strip.getSize(); i++)
+            while(true)
             {
-                if (i % 2 == 0)
+                for (int i = 0; i < Program.strip.getSize(); i++)
                 {
-                    Program.strip.setPixel(i, Color.FromArgb(255, 255, 150));
+                    if (i % 2 == 0)
+                    {
+                        Program.strip.setPixel(i, Color.FromArgb(255, 255, 150));
+                    }
+                    else
+                    {
+                        Program.strip.setPixel(i, Color.Red);
+                    }
                 }
-                else
-                {
-                    Program.strip.setPixel(i, Color.Red);
-                }
-            }
-            Program.strip.update();
+                Program.strip.update();
 
-            Thread.Sleep(1000);
+                Thread.Sleep(1000);
 
-            for (int i = 0; i < Program.strip.getSize(); i++)
-            {
-                if (i % 2 == 0)
+                for (int i = 0; i < Program.strip.getSize(); i++)
                 {
-                    Program.strip.setPixel(i, Color.Red);
+                    if (i % 2 == 0)
+                    {
+                        Program.strip.setPixel(i, Color.Red);
+                    }
+                    else
+                    {
+                        Program.strip.setPixel(i, Color.FromArgb(255, 255, 150));
+                    }
                 }
-                else
-                {
-                    Program.strip.setPixel(i, Color.FromArgb(255, 255, 150));
-                }
-            }
-            Program.strip.update();
+                Program.strip.update();
 
-            Thread.Sleep(1000);
+                Thread.Sleep(1000);
+            }   
         }
 
         public static void christmas()
@@ -74,83 +79,91 @@ namespace ledStripController
             int DWELL = 5000;
             int WAIT = 33;
 
-            for (int k = 0; k < NUMFRAMES / 4; k++)
+            while(true)
             {
-                for (int i = 0; i < Program.strip.getSize() / GROUPPIXELS; i++)
+                for (int k = 0; k < NUMFRAMES / 4; k++)
                 {
-                    // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-                    //pixels.setPixelColor(i, pixels.Color(0,150,0)); // Moderately bright green color.
-
-                    for (int j = 0; j < GROUPPIXELS / 2; j++)
+                    for (int i = 0; i < Program.strip.getSize() / GROUPPIXELS; i++)
                     {
-                        //Do math for colour interpolation here
-                        Program.strip.setPixel(i * GROUPPIXELS + j, Color.FromArgb(120 - 120 / (NUMFRAMES / 4) * k, 120 / (NUMFRAMES / 4) * k, 0));
+                        // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
+                        //pixels.setPixelColor(i, pixels.Color(0,150,0)); // Moderately bright green color.
+
+                        for (int j = 0; j < GROUPPIXELS / 2; j++)
+                        {
+                            //Do math for colour interpolation here
+                            Program.strip.setPixel(i * GROUPPIXELS + j, Color.FromArgb(120 - 120 / (NUMFRAMES / 4) * k, 120 / (NUMFRAMES / 4) * k, 0));
+                        }
+
+                    }
+                    Program.strip.update();
+                    Thread.Sleep(WAIT);
+                }
+                Thread.Sleep(DWELL);
+
+                for (int k = 0; k < NUMFRAMES / 4; k++)
+                {
+                    for (int i = 0; i < Program.strip.getSize() / GROUPPIXELS; i++)
+                    {
+
+                        for (int j = 0; j < GROUPPIXELS / 2; j++)
+                        {
+                            //Do math for colour interpolation here
+                            Program.strip.setPixel(i * GROUPPIXELS + j + GROUPPIXELS / 2, Color.FromArgb(120 / (NUMFRAMES / 4) * k, 120 - 120 / (NUMFRAMES / 4) * k, 0));
+                        }
                     }
 
+                    Program.strip.update();
+                    Thread.Sleep(WAIT);
                 }
-                Program.strip.update();
-                Thread.Sleep(WAIT);
-            }
-            Thread.Sleep(DWELL);
+                Thread.Sleep(DWELL);
 
-            for (int k = 0; k < NUMFRAMES / 4; k++)
-            {
-                for (int i = 0; i < Program.strip.getSize() / GROUPPIXELS; i++)
+                for (int k = 0; k < NUMFRAMES / 4; k++)
                 {
-
-                    for (int j = 0; j < GROUPPIXELS / 2; j++)
+                    for (int i = 0; i < Program.strip.getSize() / GROUPPIXELS; i++)
                     {
-                        //Do math for colour interpolation here
-                        Program.strip.setPixel(i * GROUPPIXELS + j + GROUPPIXELS / 2, Color.FromArgb(120 / (NUMFRAMES / 4) * k, 120 - 120 / (NUMFRAMES / 4) * k, 0));
+                        // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
+                        //pixels.setPixelColor(i, pixels.Color(0,150,0)); // Moderately bright green color.
+
+                        for (int j = 0; j < GROUPPIXELS / 2; j++)
+                        {
+                            //Do math for colour interpolation here
+                            Program.strip.setPixel(i * GROUPPIXELS + j, Color.FromArgb(120 / (NUMFRAMES / 4) * k, 120 - 120 / (NUMFRAMES / 4) * k, 0));
+                        }
                     }
+
+                    Program.strip.update();
+                    Thread.Sleep(WAIT);
                 }
+                Thread.Sleep(DWELL);
 
-                Program.strip.update();
-                Thread.Sleep(WAIT);
-            }
-            Thread.Sleep(DWELL);
-
-            for (int k = 0; k < NUMFRAMES / 4; k++)
-            {
-                for (int i = 0; i < Program.strip.getSize() / GROUPPIXELS; i++)
+                for (int k = 0; k < NUMFRAMES / 4; k++)
                 {
-                    // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-                    //pixels.setPixelColor(i, pixels.Color(0,150,0)); // Moderately bright green color.
-
-                    for (int j = 0; j < GROUPPIXELS / 2; j++)
+                    for (int i = 0; i < Program.strip.getSize() / GROUPPIXELS; i++)
                     {
-                        //Do math for colour interpolation here
-                        Program.strip.setPixel(i * GROUPPIXELS + j, Color.FromArgb(120 / (NUMFRAMES / 4) * k, 120 - 120 / (NUMFRAMES / 4) * k, 0));
+                        // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
+                        //pixels.setPixelColor(i, pixels.Color(0,150,0)); // Moderately bright green color.
+
+                        for (int j = 0; j < GROUPPIXELS / 2; j++)
+                        {
+                            //Do math for colour interpolation here
+                            Program.strip.setPixel(i * GROUPPIXELS + j + GROUPPIXELS / 2, Color.FromArgb(120 - 120 / (NUMFRAMES / 4) * k, 120 / (NUMFRAMES / 4) * k, 0));
+                        }
                     }
+
+                    Program.strip.update();
+                    Thread.Sleep(WAIT);
                 }
-
-                Program.strip.update();
-                Thread.Sleep(WAIT);
+                Thread.Sleep(DWELL);
             }
-            Thread.Sleep(DWELL);
-
-            for (int k = 0; k < NUMFRAMES / 4; k++)
-            {
-                for (int i = 0; i < Program.strip.getSize() / GROUPPIXELS; i++)
-                {
-                    // pixels.Color takes RGB values, from 0,0,0 up to 255,255,255
-                    //pixels.setPixelColor(i, pixels.Color(0,150,0)); // Moderately bright green color.
-
-                    for (int j = 0; j < GROUPPIXELS / 2; j++)
-                    {
-                        //Do math for colour interpolation here
-                        Program.strip.setPixel(i * GROUPPIXELS + j + GROUPPIXELS / 2, Color.FromArgb(120 - 120 / (NUMFRAMES / 4) * k, 120 / (NUMFRAMES / 4) * k, 0));
-                    }
-                }
-
-                Program.strip.update();
-                Thread.Sleep(WAIT);
-            }
-            Thread.Sleep(DWELL);
         }
 
         public static void deskLight()
         {
+            for (int i = 0; i < 17; i++)
+            {
+                Program.strip.setPixel(i, Color.FromArgb(0, 0, 0));
+                Program.strip.update();
+            }
             for (int i = 17; i < 48; i++)
             {
                 Program.strip.setPixel(i, Color.FromArgb(0, 0, 10));
@@ -170,6 +183,11 @@ namespace ledStripController
 
         public static void readingLight()
         {
+            for (int i = 0; i < 17; i++)
+            {
+                Program.strip.setPixel(i, Color.FromArgb(0, 0, 0));
+                Program.strip.update();
+            }
             for (int i = 17; i < 96; i++)
             {
                 Program.strip.setPixel(i, Color.FromArgb(0, 0, 10));
@@ -189,9 +207,23 @@ namespace ledStripController
 
         public static void nightight()
         {
+            for (int i = 0; i < 17; i++)
+            {
+                Program.strip.setPixel(i, Color.FromArgb(0, 0, 0));
+                Program.strip.update();
+            }
             for (int i = 17; i < 240; i++)
             {
                 Program.strip.setPixel(i, Color.FromArgb(0, 0, 10));
+                Program.strip.update();
+            }
+        }
+
+        public static void warmAmbient()
+        {
+            for (int i = 0; i < 240; i++)
+            {
+                Program.strip.setPixel(i, Color.FromArgb(255, 168, 43));
                 Program.strip.update();
             }
         }

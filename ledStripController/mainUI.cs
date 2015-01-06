@@ -35,6 +35,7 @@ namespace ledStripController
             _items.Add("Desk Light");
             _items.Add("Night Light");
             _items.Add("Reading Light");
+            _items.Add("Warm Ambient");
             _items.Add("Waterfall");
             _items.Add("Diagnostics");
 
@@ -91,9 +92,13 @@ namespace ledStripController
             }
             if (index == 6)
             {
-                currentThread = new Thread(ledEffects.waterfall);
+                currentThread = new Thread(ledEffects.warmAmbient);
             }
             if (index == 7)
+            {
+                currentThread = new Thread(ledEffects.waterfall);
+            }
+            if (index == 8)
             {
                 currentThread = new Thread(ledEffects.quietDiagnostic);
             }

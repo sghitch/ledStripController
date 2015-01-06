@@ -21,7 +21,7 @@ namespace ledStripController
         {
             //Initialize Serial Port
             _serialPort = new SerialPort();
-            _serialPort.PortName = "com4";
+            _serialPort.PortName = "com3";
             _serialPort.BaudRate = 250000;
             _serialPort.Open();
 

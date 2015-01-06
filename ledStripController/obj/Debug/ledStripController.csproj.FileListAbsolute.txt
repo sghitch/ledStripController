@@ -1,0 +1,10 @@
+C:\Users\Stephen\OneDrive\Documents\Code\ledStripController\ledStripController\bin\Debug\ledStripController.exe.config
+C:\Users\Stephen\OneDrive\Documents\Code\ledStripController\ledStripController\bin\Debug\ledStripController.exe
+C:\Users\Stephen\OneDrive\Documents\Code\ledStripController\ledStripController\bin\Debug\ledStripController.pdb
+C:\Users\Stephen\OneDrive\Documents\Code\ledStripController\ledStripController\obj\Debug\ledStripController.csprojResolveAssemblyReference.cache
+C:\Users\Stephen\OneDrive\Documents\Code\ledStripController\ledStripController\obj\Debug\ledStripController.mainUI.resources
+C:\Users\Stephen\OneDrive\Documents\Code\ledStripController\ledStripController\obj\Debug\ledStripController.Properties.Resources.resources
+C:\Users\Stephen\OneDrive\Documents\Code\ledStripController\ledStripController\obj\Debug\ledStripController.serialQuery.resources
+C:\Users\Stephen\OneDrive\Documents\Code\ledStripController\ledStripController\obj\Debug\ledStripController.csproj.GenerateResource.Cache
+C:\Users\Stephen\OneDrive\Documents\Code\ledStripController\ledStripController\obj\Debug\ledStripController.exe
+C:\Users\Stephen\OneDrive\Documents\Code\ledStripController\ledStripController\obj\Debug\ledStripController.pdb

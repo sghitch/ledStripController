@@ -18,3 +18,7 @@ E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledSt
 E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.Properties.Resources.resources
 E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.serialQuery.resources
 E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.csproj.GenerateResource.Cache
+E:\Documents\Coding\GitHub\ledStripController\ledStripController\bin\Debug\ledStripController.exe.manifest
+E:\Documents\Coding\GitHub\ledStripController\ledStripController\bin\Debug\ledStripController.application
+E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.exe.manifest
+E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.application

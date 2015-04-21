@@ -33,6 +33,10 @@
             this.onButton = new System.Windows.Forms.RadioButton();
             this.offButton = new System.Windows.Forms.RadioButton();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.colorPickButton = new System.Windows.Forms.Button();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -66,27 +70,46 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
+            // colorPickButton
+            // 
+            resources.ApplyResources(this.colorPickButton, "colorPickButton");
+            this.colorPickButton.Name = "colorPickButton";
+            this.colorPickButton.UseVisualStyleBackColor = true;
+            this.colorPickButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // trackBar1
+            // 
+            resources.ApplyResources(this.trackBar1, "trackBar1");
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
+            this.trackBar1.DragOver += new System.Windows.Forms.DragEventHandler(this.trackBar1_DragOver);
+            // 
             // mainUI
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.Controls.Add(this.colorPickButton);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.offButton);
             this.Controls.Add(this.onButton);
             this.Controls.Add(this.label1);
             this.Name = "mainUI";
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
         #endregion
-
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton onButton;
         private System.Windows.Forms.RadioButton offButton;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button colorPickButton;
+        private System.Windows.Forms.TrackBar trackBar1;
     }
 }
 

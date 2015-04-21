@@ -13,6 +13,7 @@ namespace ledStripController
     {
         static SerialPort _serialPort;
         public static ledStrip strip;
+        public static float FRAMERATE;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -26,6 +27,7 @@ namespace ledStripController
             _serialPort.Open();
 
             //Initilize strip
+            FRAMERATE = 28;
             strip = new ledStrip(240, _serialPort);
 
             //Query for reset

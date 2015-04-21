@@ -15,9 +15,11 @@ namespace ledStripController
     public partial class mainUI : Form
     {
         List<string> _items = new List<string>();
+        private static List<Action> _programs = new List<Action>();
         private static Thread currentThread;
         private static Boolean onState;
-
+        public Color customColor;
+        
         public mainUI()
         {
             //Establish Program Threads
@@ -34,13 +36,28 @@ namespace ledStripController
             _items.Add("Christmas");
             _items.Add("Desk Light");
             _items.Add("Night Light");
+            _items.Add("Patriotic");
             _items.Add("Reading Light");
             _items.Add("Warm Ambient");
             _items.Add("Waterfall");
             _items.Add("Diagnostics");
 
+            //Intialize Program Threads
+            _programs.Add(ledEffects.blank);
+            _programs.Add(ledEffects.candyCane);
+            _programs.Add(ledEffects.christmas);
+            _programs.Add(ledEffects.deskLight);
+            _programs.Add(ledEffects.nightlight);
+            _programs.Add(ledEffects.patriotic);
+            _programs.Add(ledEffects.readingLight);
+            _programs.Add(ledEffects.warmAmbient);
+            _programs.Add(ledEffects.waterfall);
+            _programs.Add(ledEffects.diagnostics);
+
+
             listBox1.DataSource = _items;
         }
+
 
         public void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -62,7 +79,7 @@ namespace ledStripController
             threadExecuter(listBox1.SelectedIndex+1);
         }
 
-        private static void threadExecuter(int index)
+        /*private static void threadExecuter(int index)
         {
             currentThread.Abort();
 
@@ -84,7 +101,7 @@ namespace ledStripController
             }
             if (index == 4)
             {
-                currentThread = new Thread(ledEffects.nightight);
+                currentThread = new Thread(ledEffects.nightlight);
             }
             if (index == 5)
             {
@@ -104,6 +121,36 @@ namespace ledStripController
             }
             
             currentThread.Start();
+        }*/
+        private static void threadExecuter(int index)
+        {
+            currentThread.Abort();
+            currentThread = new Thread(new ThreadStart(_programs[index]));
+            Program.strip.clearUpdateRequests();
+            currentThread.Start();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            Color stripColor = colorDialog1.Color;
+
+            currentThread.Abort();
+            onState = false;
+
+            Program.strip.flood(stripColor);
+            Program.strip.update();
+        }
+
+        private void trackBar1_DragOver(object sender, DragEventArgs e)
+        {
+            
+        }
+
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            Program.strip.setOveride(trackBar1.Value);
+        }
+
     }
 }

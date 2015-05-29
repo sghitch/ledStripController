@@ -36,6 +36,7 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorPickButton = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.framerateBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,17 +80,26 @@
             // 
             // trackBar1
             // 
+            this.trackBar1.LargeChange = 1;
             resources.ApplyResources(this.trackBar1, "trackBar1");
             this.trackBar1.Maximum = 100;
             this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Value = 100;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             this.trackBar1.DragOver += new System.Windows.Forms.DragEventHandler(this.trackBar1_DragOver);
+            // 
+            // framerateBox
+            // 
+            resources.ApplyResources(this.framerateBox, "framerateBox");
+            this.framerateBox.Name = "framerateBox";
+            this.framerateBox.TextChanged += new System.EventHandler(this.framerateBox_TextChanged);
             // 
             // mainUI
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.Controls.Add(this.framerateBox);
             this.Controls.Add(this.colorPickButton);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.listBox1);
@@ -110,6 +120,7 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button colorPickButton;
         private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TextBox framerateBox;
     }
 }
 

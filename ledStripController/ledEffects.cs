@@ -32,6 +32,22 @@ namespace ledStripController
             }
         }
 
+        public static void fuse()
+        {
+            while (true)
+            {
+                for (int i = 0; i < 240; i++)
+                {
+                    for (int j = 0; j < Program.strip.getSize(); j++)
+                    {
+                        int color = ((i + j) % 60) ;
+                        setPixel(j, Color.FromArgb(240 / (color * 8 + 1) , 96 / (color * 8 + 1), 0));
+                    }
+                    update();
+                }
+            }
+        }
+
         public static void candyCane()
         {
             while(true)
@@ -244,19 +260,19 @@ namespace ledStripController
             int i = 0;
             while (i < Program.strip.getSize())
             {
-                for(int j = 0; j < 4; j++)
+                for(int j = 0; j < 20; j++)
                 {
                     setPixel(i, Color.FromArgb(255, 0, 0));
                     update();
                     i++;
                 }
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 20; j++)
                 {
                     setPixel(i, Color.FromArgb(255, 168, 43));
                     update();
                     i++;
                 }
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 20; j++)
                 {
                     setPixel(i, Color.FromArgb(0, 0, 255));
                     update();

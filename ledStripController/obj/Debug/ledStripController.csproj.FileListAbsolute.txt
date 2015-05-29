@@ -13,7 +13,6 @@ E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledSt
 E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.pdb
 E:\Documents\Coding\GitHub\ledStripController\ledStripController\bin\Debug\ledStripController.exe
 E:\Documents\Coding\GitHub\ledStripController\ledStripController\bin\Debug\ledStripController.pdb
-E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.csprojResolveAssemblyReference.cache
 E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.mainUI.resources
 E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.Properties.Resources.resources
 E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.serialQuery.resources

@@ -38,7 +38,10 @@ namespace ledStripController
         public void setOveride(int value)
         {
             luminanceOveride = value/100.0;
-            this.update();
+            if (updateQueue.Count == 0)
+            {
+                update();
+            }
         }
 
         public void setPixel(int index, Color color)
@@ -83,15 +86,11 @@ namespace ledStripController
         private void updateQueueManager()
         {
             while(true)
-            {
-                if(updateQueue.Count != 0)
+            {  
+                if (updateQueue.Count > 0)
                 {
                     updateStrip(updateQueue.Dequeue());
-                    Thread.Sleep(8);
-                }
-                if (updateQueue.Count > 5000)
-                {
-                    clearUpdateRequests();
+                    Thread.Sleep((int)(1000 / Program.FRAMERATE));
                 }
             }
         }

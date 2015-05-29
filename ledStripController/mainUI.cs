@@ -35,6 +35,7 @@ namespace ledStripController
             _items.Add("Candy Cane");
             _items.Add("Christmas");
             _items.Add("Desk Light");
+            _items.Add("Fuse");
             _items.Add("Night Light");
             _items.Add("Patriotic");
             _items.Add("Reading Light");
@@ -47,6 +48,7 @@ namespace ledStripController
             _programs.Add(ledEffects.candyCane);
             _programs.Add(ledEffects.christmas);
             _programs.Add(ledEffects.deskLight);
+            _programs.Add(ledEffects.fuse);
             _programs.Add(ledEffects.nightlight);
             _programs.Add(ledEffects.patriotic);
             _programs.Add(ledEffects.readingLight);
@@ -56,6 +58,8 @@ namespace ledStripController
 
 
             listBox1.DataSource = _items;
+
+            Program.strip.setOveride(100);
         }
 
 
@@ -150,6 +154,14 @@ namespace ledStripController
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
             Program.strip.setOveride(trackBar1.Value);
+        }
+
+        private void framerateBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!framerateBox.Text.Equals(""))
+            {
+                Program.FRAMERATE = int.Parse(framerateBox.Text);
+            }     
         }
 
     }

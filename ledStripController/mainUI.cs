@@ -22,6 +22,9 @@ namespace ledStripController
         
         public mainUI()
         {
+            sync.Interval = (int)(1000 / Program.FRAMERATE);
+            sync.Start();
+
             //Establish Program Threads
 
             currentThread = new Thread(ledEffects.blank);
@@ -162,6 +165,16 @@ namespace ledStripController
             {
                 Program.FRAMERATE = int.Parse(framerateBox.Text);
             }     
+        }
+ 
+        private void animationButton_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void sync_Tick(object sender, EventArgs e)
+        {
+            Program.strip.updateStrip();
         }
 
     }

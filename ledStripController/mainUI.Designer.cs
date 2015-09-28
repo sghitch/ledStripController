@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainUI));
             this.label1 = new System.Windows.Forms.Label();
             this.onButton = new System.Windows.Forms.RadioButton();
@@ -37,6 +38,8 @@
             this.colorPickButton = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.framerateBox = new System.Windows.Forms.TextBox();
+            this.animationButton = new System.Windows.Forms.Button();
+            this.sync = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,11 +97,23 @@
             this.framerateBox.Name = "framerateBox";
             this.framerateBox.TextChanged += new System.EventHandler(this.framerateBox_TextChanged);
             // 
+            // animationButton
+            // 
+            resources.ApplyResources(this.animationButton, "animationButton");
+            this.animationButton.Name = "animationButton";
+            this.animationButton.UseVisualStyleBackColor = true;
+            this.animationButton.Click += new System.EventHandler(this.animationButton_Click);
+            // 
+            // sync
+            // 
+            this.sync.Tick += new System.EventHandler(this.sync_Tick);
+            // 
             // mainUI
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.Controls.Add(this.animationButton);
             this.Controls.Add(this.framerateBox);
             this.Controls.Add(this.colorPickButton);
             this.Controls.Add(this.trackBar1);
@@ -121,6 +136,8 @@
         private System.Windows.Forms.Button colorPickButton;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.TextBox framerateBox;
+        private System.Windows.Forms.Button animationButton;
+        private System.Windows.Forms.Timer sync;
     }
 }
 

@@ -21,3 +21,5 @@ E:\Documents\Coding\GitHub\ledStripController\ledStripController\bin\Debug\ledSt
 E:\Documents\Coding\GitHub\ledStripController\ledStripController\bin\Debug\ledStripController.application
 E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.exe.manifest
 E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.application
+E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.csprojResolveAssemblyReference.cache
+E:\Documents\Coding\GitHub\ledStripController\ledStripController\obj\Debug\ledStripController.animationEditor.resources

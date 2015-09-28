@@ -24,8 +24,6 @@ namespace ledStripController
             strip = new List<Color>();
             _serialPort = arduino;
             updateQueue = new Queue<List<Color>>();
-            Thread updateQueueThread = new Thread(updateQueueManager);
-            updateQueueThread.Start();
 
             //Initialize Blank Arrays
             for(int i = 0; i < ledCount; i++)
@@ -83,46 +81,38 @@ namespace ledStripController
             updateQueue.Enqueue(updateRequest);
         }
 
-        private void updateQueueManager()
-        {
-            while(true)
-            {  
-                if (updateQueue.Count > 0)
-                {
-                    updateStrip(updateQueue.Dequeue());
-                    Thread.Sleep((int)(1000 / Program.FRAMERATE));
-                }
-            }
-        }
-
         public void clearUpdateRequests()
         {
             updateQueue.Clear();
         }
 
-        private void updateStrip(List<Color> updateRequest)
+        public void updateStrip()
         {
-            byte[] buf = new byte[NUMLEDS * 3];
-
-            for (int i = 0; i < NUMLEDS; i++)
+            if (updateQueue.Count > 0)
             {
-                Color c = updateRequest[i];
-                int r = (int)c.R;
-                int g = (int)c.G;
-                int b = (int)c.B;
-                c = Color.FromArgb((int)(r * luminanceOveride), (int)(g * luminanceOveride), (int)(b * luminanceOveride));
+                List<Color> updateRequest = updateQueue.Dequeue();
+                byte[] buf = new byte[NUMLEDS * 3];
 
-                //Write Bytes
-                buf[3 * i + 0] = c.G;
-                buf[3 * i + 1] = c.R;
-                buf[3 * i + 2] = c.B;
-                
-                /*_serialPort.Write(BitConverter.GetBytes(c.G), 0, 1);
-                _serialPort.Write(BitConverter.GetBytes(c.R), 0, 1);
-                _serialPort.Write(BitConverter.GetBytes(c.B), 0, 1);*/
+                for (int i = 0; i < NUMLEDS; i++)
+                {
+                    Color c = updateRequest[i];
+                    int r = (int)c.R;
+                    int g = (int)c.G;
+                    int b = (int)c.B;
+                    c = Color.FromArgb((int)(r * luminanceOveride), (int)(g * luminanceOveride), (int)(b * luminanceOveride));
+
+                    //Write Bytes
+                    buf[3 * i + 0] = c.G;
+                    buf[3 * i + 1] = c.R;
+                    buf[3 * i + 2] = c.B;
+
+                    /*_serialPort.Write(BitConverter.GetBytes(c.G), 0, 1);
+                    _serialPort.Write(BitConverter.GetBytes(c.R), 0, 1);
+                    _serialPort.Write(BitConverter.GetBytes(c.B), 0, 1);*/
+                }
+
+                _serialPort.Write(buf, 0, NUMLEDS * 3);
             }
-
-            _serialPort.Write(buf, 0, NUMLEDS * 3);
         }
         
 

@@ -14,6 +14,8 @@ namespace ledStripController
         static SerialPort _serialPort;
         public static ledStrip strip;
         public static float FRAMERATE;
+        public static int NUMLEDS;
+        private static System.Windows.Forms.Timer sync;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -28,15 +30,18 @@ namespace ledStripController
 
             //Initilize strip
             FRAMERATE = 120;
-            strip = new ledStrip(240, _serialPort);
+            NUMLEDS = 240;
+            strip = new ledStrip(NUMLEDS, _serialPort);
 
             //Query for reset
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new animationEditor());
             Application.Run(new serialQuery());
 
             //Begin main app
             Application.Run(new mainUI());
+
 
         }
     }
